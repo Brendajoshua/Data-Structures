@@ -25,10 +25,10 @@ class LRUCache:
         # retrieve value from cache using key
         item = self.lookup.get(key)
         # return value if exists, if not return None
-        if item.value is not None:
+        if item is not None:
             # move element to front of cache (most recently used)
             self.cache.move_to_front(item)
-            return item.value
+            return item.value[1]
         else:
             return None
 
@@ -50,10 +50,12 @@ class LRUCache:
             self.cache.add_to_head((key, value))
             self.lookup.update({key: self.cache.head})
             # if cache is at max capacity
-            if self.cache.length == limit:
+            if self.holding == self.limit:
                 # remove oldest entry from cache (tail) and lookup
                 oldest = self.cache.remove_from_tail()
                 self.lookup.pop(oldest[0])
+            else:
+                self.holding += 1
         # if it does
         else:
             # rewrite old value with new value
