@@ -62,7 +62,14 @@ class BinarySearchTree:
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        def traverse_tree(node, cb):
+            if node is none:
+                return
+            else:
+                cb(node.value)
+                traverse_tree(node.left, cb)
+                traverse_tree(node.right, cb)
+        traverse_tree(self, cb)
 
     # DAY 2 Project -----------------------
 
