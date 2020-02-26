@@ -102,7 +102,11 @@ class BinarySearchTree:
         # if right node doesn't have children 
             # move back to the parent of the root node
         # same idea as for_each recursive solution
-        pass
+        if self.left:
+            self.left.in_order_print(self.left)
+        if self.right:
+            self.right.in_order_print(self.right)
+        print(self.value)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
