@@ -119,7 +119,7 @@ class BinarySearchTree:
         # while the queue is not empty
         while q.len() > 0:
             # save root in temp var, dequeue
-            tmp = q.dequeue
+            tmp = q.dequeue()
             # print value
             print(tmp.value)
             # check left and right
@@ -155,8 +155,16 @@ class BinarySearchTree:
 
     # Print Pre-order recursive DFT
     def pre_order_dft(self, node):
-        pass
+        print(self.value)
+        if self.left:
+            self.left.pre_order_dft(self.left)
+        if self.right:
+            self.right.pre_order_dft(self.right)
 
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
-        pass
+        if self.left:
+            self.left.post_order_dft(self.left)
+        if self.right:
+            self.right.post_order_dft(self.right)
+        print(self.value)
