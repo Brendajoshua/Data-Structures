@@ -104,9 +104,10 @@ class BinarySearchTree:
         # same idea as for_each recursive solution
         if self.left:
             self.left.in_order_print(self.left)
+        print(self.value)
         if self.right:
             self.right.in_order_print(self.right)
-        print(self.value)
+    
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
